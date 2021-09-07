@@ -10,4 +10,6 @@ public interface UserService {
     UserEntity save(UserDto userDto, String roleAssigned);
     List<UserEntity> findAll();
     UserEntity findOne(String email);
+    void deleteByEmail(String email);
+    void deleteAll();
 }

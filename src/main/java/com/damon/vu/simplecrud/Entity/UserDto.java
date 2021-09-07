@@ -1,5 +1,9 @@
 package com.damon.vu.simplecrud.Entity;
 
+// Need this class because inside the UserEntity
+// The password field is annotated with @JsonIgnore
+// So if we passed user as UserEntity
+// The password will be null
 public class UserDto {
 
     private String firstName;

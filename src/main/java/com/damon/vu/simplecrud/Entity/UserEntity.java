@@ -37,7 +37,7 @@ public class UserEntity {
     @Size(min = 8, message = "Password should have at least 8 characters")
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "USER_ROLE",
             joinColumns = {

@@ -1,6 +1,7 @@
 package com.damon.vu.simplecrud.Entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "role")
@@ -15,6 +16,16 @@ public class RoleEntity {
 
     @Column
     private String description;
+
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH,CascadeType.MERGE})
+    @JoinTable(name= "USER_ROLE",
+            joinColumns = {
+                @JoinColumn(name = "ROLE_ID")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "USER_ID")
+            })
+    private Set<UserEntity> users;
 
     public long getId() {
         return id;

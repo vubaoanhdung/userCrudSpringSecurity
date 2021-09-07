@@ -30,7 +30,7 @@ public class ApplicationConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/user/register", "/api/user/authenticate").permitAll()
+                .antMatchers("/api/user/register/**", "/api/user/authenticate").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedEntryPoint)

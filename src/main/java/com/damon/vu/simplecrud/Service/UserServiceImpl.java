@@ -55,7 +55,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity findOne(String email) {
-        return this.userRepository.findUserByEmail(email);
+
+        UserEntity user = this.userRepository.findUserByEmail(email);
+        return user;
     }
+
+    @Override
+    public void deleteByEmail(String email) {
+        UserEntity user = this.userRepository.findUserByEmail(email);
+        System.out.println(user);
+        this.userRepository.deleteById(user.getId());
+    }
+
+    @Override
+    public void deleteAll() {
+        this.userRepository.deleteAll();
+    }
+
 
 }
